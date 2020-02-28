@@ -1,0 +1,44 @@
+.our-work {
+  padding: 35px 0;
+}
+
+.our-work__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-left: -70px;
+  margin-right: -70px;
+  padding: 0;
+  list-style-type: none;
+  counter-reset: work;
+}
+
+.our-work__item {
+  flex: 0 1 33.3333333333%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 70px;
+  box-sizing: border-box;
+  counter-increment: work;
+}
+
+.our-work__img {
+  order: 1;
+  margin-bottom: 20px;
+  max-width: 110px;
+  max-height: 95px;
+}
+
+.our-work__item::before {
+  content: counter(work)".";
+  order: 2;
+  font-weight: 700;
+}
+
+.our-work__desc {
+  order: 3;
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+}

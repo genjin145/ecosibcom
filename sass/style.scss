@@ -1,3 +1,35 @@
 body {
-  background-color: red;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
+
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.section-title.section-title--secondary {
+  color: #0AAED3;
+  font-weight: 700;
+}
+
+@import "btn";
+@import "form";
+
+@import "header";
+@import "main-menu";
+@import "hero";
+@import "services";
+@import "our-work";
+@import "reviews";
+@import "contacts";
+@import "popup";
