@@ -32,3 +32,10 @@
 .btn-secondary:hover {
   background-color: #01afd4;
 }
+
+@media (max-width: 575px) {
+  .btn {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+}

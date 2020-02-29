@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
-  <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css">
+  <!-- <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <title>Экология Сибири</title>
 </head>
@@ -16,7 +16,7 @@
     <nav class="header__nav">
       <ul class="main-menu">
         <li class="main-menu__item">
-          <a class="main-menu__link" href="#main">Главная</a>
+          <a class="main-menu__link" href="#main"><span>Главная</span></a>
         </li>
         <li class="main-menu__item">
           <a class="main-menu__link" href="#services">Наши услуги</a>
@@ -41,6 +41,7 @@
         </a>
 
         <p class="header__logo-desc">
+          <span class="header__logo-text">ООО Экология Сибири</span>
           <span>ЭКСПЕРТИЗА</span>
           <span>ЛАБОРАТОРИЯ</span>
           <span>ДОКУМЕНТАЦИЯ</span>
@@ -106,7 +107,7 @@
         <div class="services__box" style="background-image: url(img/services_bg.jpg)">
           <h3 class="services__sub-title">ЛАБОРАТОРНЫЕ ИССЛЕДОВАНИЯ</h3>
 
-          <ul class="services-list services-list--flex">
+          <ul class="services-list services-list--grid">
             <li class="services-list__item">
               <span class="services-list__title">Анализ воды химический базовый . Скважина, колодец, родник, водопровод(15-ть показателей)</span>
             
@@ -326,19 +327,27 @@
             У нас двое детей,  4 и 7 лет. После переезда в новую квартиру ребятишки стали регулярно болеть. Причём и летом и зимой. Диагноз в поликлинике ставили ОРЗ.  На старой квартире такого не было! У нас с мужем здоровье за эти 2 года тоже ухудшилось.  Терялись в догадках, пока друзья не порекомендовали эту экологическую лабораторию (www.ecosib.com), дали визитку.  После обследования и выполнения рекомендаций экологов уже через неделю ощутили улучшение самочувствия. За последние полгода ни одного ОРЗ! Спасибо! А то мы уже подумывали о смене жилья.
           </div>
         </div>
+
+        <div class="reviews__options">
+          <div class="reviews__arrows"></div>
+  
+          <div class="reviews__dots"></div>
+        </div>
       </div>
     </section>
     <!--  -->
 
     <!-- контакты -->
     <section class="contacts" id="contacts">
-      <h2 class="contacts__title section-title">Контактная информация</h2>
+      <div class="container">
+        <h2 class="contacts__title section-title">Контактная информация</h2>
+      </div>
 
-      <div class="contacts__box">
+      <div class="contacts__box" style="background-image: url(img/bg.jpg);">
         <div class="container">
           <div class="contacts__left">
             <div id="map">
-              <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=2wQc8pRfFAXgZbRLnAUn0EPRPHpjv_64&amp;width=635&amp;height=346&amp;lang=ru_RU&amp;sourceType=constructor"></script>
+              <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=2wQc8pRfFAXgZbRLnAUn0EPRPHpjv_64&amp;lang=ru_RU&amp;sourceType=constructor"></script>
             </div>
 
             <div class="contacts__info">
@@ -361,9 +370,9 @@
               </div>
 
               <div class="form__box">
-                <input class="form__input" type="text" placeholder="ФИО">
-                <input class="form__input" type="text" placeholder="Введите номер телефона">
-                <input class="form__input" type="text" placeholder="Введите e-mail">
+                <input class="form__input" type="text" placeholder="ФИО" name="name">
+                <input class="form__input" type="text" placeholder="Введите номер телефона" name="phone" required>
+                <input class="form__input" type="text" placeholder="Введите e-mail" name="email" required>
   
                 <button class="btn btn-primary" type="submit">Узнать про скидку</button>
               </div>
@@ -371,7 +380,12 @@
           </div>
 
           <div class="contacts__footer">
+            <button class="contacts__info-left btn btn-secondary">Заказать звонок</button>
 
+            <div class="contacts__footer-right">
+              <span class="header__city">г. Новосибирск</span>
+              <b class="header__phone">+7 (383) 214-62-87</b>
+            </div>
           </div>
         </div>
       </div>
@@ -380,23 +394,10 @@
   </main>
   <!--  -->
 
-  <div class="popup">
-    <div class="popup__box">
-      <form class="form" action="">
-        <h2 class="form__title section-title section-title--secondary">ЗАКАЗ ЗВОНКА</h2>
-
-        <div class="form__box">
-          <input class="form__input" type="text" placeholder="Ваше имя">
-          <input class="form__input" type="text" placeholder="Введите номер телефона">
-
-          <button class="btn btn-primary" type="submit">Заказать звонок</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/inputmask/dist/jquery.inputmask.js"></script>
   <script src="node_modules/slick-carousel/slick/slick.js"></script>
+  <script crossorigin="anonymous" async="" type="text/javascript" src="//api.pozvonim.com/widget/callback/v3/86b041999d49de3ff784b3d9c3c1faf5/connect" id="check-code-pozvonim" charset="UTF-8"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

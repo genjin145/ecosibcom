@@ -35,6 +35,19 @@
   transition: border-color 300ms;
 }
 
+.form__input--error {
+  border-color: #D7244C;
+}
+
+.form__input--error::placeholder {
+  color: #D7244C;
+  font-style: italic;
+}
+.form__input--error::-ms-input-placeholder {
+  color: #D7244C;
+  font-style: italic;
+}
+
 .form__input:hover,
 .form__input:focus {
   border-color: #000;
@@ -44,8 +57,14 @@
 .form__input::placeholder {
   transition: color 300ms;
 }
+.form__input::-ms-input-placeholder {
+  transition: color 300ms;
+}
 
 .form__input:hover::placeholder {
+  color: #000;
+}
+.form__input:hover::-ms-input-placeholder {
   color: #000;
 }
 
