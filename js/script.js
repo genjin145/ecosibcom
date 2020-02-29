@@ -11,7 +11,7 @@ $('.reviews-slider').slick({
 
 
 // плавная прокрутка страницы
-$("body").on('click', '[href*="#"]', function(evt){
+$('body').on('click', '[href*="#"]', function(evt){
   let fixedOffset = 100;
   $('html, body').stop().animate({ scrollTop: $(this.hash).offset().top - fixedOffset }, 800);
   evt.preventDefault();
@@ -31,65 +31,76 @@ $(window).on('load resize', function() {
 
 
 // маска для телефона
-$('input[name=phone').on('focus', function() {
-  $(this).inputmask('+7(999) 999-99-99');
-});
+initMask();
+function initMask() {
+  $('input[name=phone').on('focus', function() {
+    $(this).inputmask('+7(999) 999-99-99');
+  });
+  
+  $('input[name=phone').on('blur', function() {
+    $(this).inputmask('remove');
+  });
+}
 
-$('input[name=phone').on('blur', function() {
-  $(this).inputmask('remove');
-});
 
 // валидация
-$('button[type=submit').on('click', function(evt) {
+validate();
+function validate() {
+  $('button[type=submit').on('click', function(evt) {
+    $(this.form.elements).each(function() {
+      if ($(this).prop('tagName') === 'INPUT') {
+        if ($(this).prop('required') && $(this).val() === '') {
+          evt.preventDefault();
+          $(this).addClass('form__input--error');
+        } else {
+          $(this).removeClass('form__input--error');
+        }
+      }
+    });
+  });
+}
+
+
+// отправка формы
+sendForm();
+function sendForm() {
+  $('.form').on('submit', function() {
+    $.ajax({
+      url: $(this).attr('action'),
+      type: 'POST',
+      data: $(this).serialize(),
+      success: function() {
+        $('.popup').remove();
+        $('body').append('<div class="popup"><div class="popup__box"><h2 class="form__title">Форма отправлена</h2><p class="form__desc">Наш менеджер свяжется с вами в ближайшее время</p></div></div>');
+      },
+    });
+  
+    return false;
+  });
+}
+
+
+// открытие попапа
+$('.js-call').on('click', function(evt) {
   evt.preventDefault();
 
-  let form = $(this)[0].form;
-  
-  $(form).checkValidity;
-  console.log($(form).valide);
-
-  for (let i = 0; i < form.length; i++) {
-    if (form[i].tagName === 'INPUT') {
-      if (form[i].required && form[i].value === '') {
-        form[i].classList.add('form__input--error');
-      } else {
-        form[i].classList.remove('form__input--error');
-      }
-    }
-  }
+  $.ajax({
+    url: 'popup.html',
+    type: 'POST',
+    success: function(res) {
+      $('body').append(res);
+      
+      initMask();
+      validate();
+      sendForm();
+    },
+  });
 });
-
-
-$('form').find('input').each(function() {
-  if (!$(this).checkValidity) {
-    console.log('err');
-  }
-});
-
-// $('input[type=text]').each(function() {
-//   if (!$(this).checkValidity) {
-//     console.log('err');
-//   }
-// });
 
 
 // закрыть попап
 $(window).on('mousedown keydown', function(evt) {
   if ($(evt.target).hasClass('popup') || evt.originalEvent.key === 'Escape') {
-    closePopup();
+    $('.popup').remove();
   }
 });
-
-function closePopup() {
-  $('.popup').remove();
-}
-
-function openPopup() {
-
-}
-
-function sendForm() {
-
-}
-
-closePopup();

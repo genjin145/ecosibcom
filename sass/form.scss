@@ -47,6 +47,10 @@
   color: #D7244C;
   font-style: italic;
 }
+.form__input--error:-ms-input-placeholder {
+  color: #D7244C !important;
+  font-style: italic !important;
+}
 
 .form__input:hover,
 .form__input:focus {
@@ -60,12 +64,18 @@
 .form__input::-ms-input-placeholder {
   transition: color 300ms;
 }
+.form__input:-ms-input-placeholder {
+  transition: color 300ms;
+}
 
 .form__input:hover::placeholder {
   color: #000;
 }
 .form__input:hover::-ms-input-placeholder {
   color: #000;
+}
+.form__input:hover:-ms-input-placeholder {
+  color: #000 !important;
 }
 
 .form__input:focus::placeholder {
