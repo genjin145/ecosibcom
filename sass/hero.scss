@@ -17,9 +17,8 @@
 .hero__sub-title {
   align-self: flex-end;
   margin: 0;
-  margin-bottom: 20px;
   display: inline-block;
-  padding: 25px;
+  padding: 10px;
   color: #0AAED3;
   font-size: 28px;
   text-align: center;
@@ -53,5 +52,25 @@
 @media (max-width: 575px) {
   .hero__box {
     flex-direction: column;
+  }
+
+  .hero__col {
+    min-height: 200px;
+  }
+
+  .hero__sub-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 399px) {
+  .hero__col {
+    padding: 15px;
+    min-height: 200px;
+  }
+
+  .hero__sub-title {
+    padding: 5px;
+    font-size: 17px;
   }
 }
